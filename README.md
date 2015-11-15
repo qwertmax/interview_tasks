@@ -29,3 +29,9 @@ func reverce(num int64) int64 {
 	return r
 }
 ```
+
+```shell
+123 is NOT Palindrom
+123321 is Palindrom
+987654321123456789 is Palindrom
+```
