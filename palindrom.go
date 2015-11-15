@@ -1,12 +1,9 @@
-# Interview Tasks
+package main
 
-## palindrom.go 
+import (
+	"fmt"
+)
 
-test number if it is palindrom or not 
-
-example 
-
-```go
 func main() {
 	numbers := []int64{123, 123321, 987654321123456789}
 
@@ -28,4 +25,3 @@ func reverce(num int64) int64 {
 
 	return r
 }
-```
