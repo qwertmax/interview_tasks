@@ -4,7 +4,7 @@
 
 test number if it is palindrom or not 
 
-example 
+## example:
 
 ```go
 func main() {
@@ -29,6 +29,8 @@ func reverce(num int64) int64 {
 	return r
 }
 ```
+
+## Output:
 
 ```shell
 123 is NOT Palindrom
