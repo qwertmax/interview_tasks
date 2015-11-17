@@ -57,3 +57,11 @@ func main() {
 	fooPtr.Bar()
 }
 ```
+
+### Output
+
+```shell
+2
+2
+2
+```
