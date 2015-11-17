@@ -37,3 +37,23 @@ func reverce(num int64) int64 {
 123321 is Palindrom
 987654321123456789 is Palindrom
 ```
+
+
+## go_fun.go
+
+### example
+
+```go
+type T int
+
+func (t T) Bar() { t++; println(t) }
+
+func main() {
+	var foo T = 1
+	var fooPtr *T = &foo
+
+	foo.Bar()
+	(*fooPtr).Bar()
+	fooPtr.Bar()
+}
+```
