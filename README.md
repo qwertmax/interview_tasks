@@ -41,6 +41,8 @@ func reverce(num int64) int64 {
 
 ## go_fun.go
 
+very funny implementation of go lang (good thing for interview question)
+
 ### example
 
 ```go
