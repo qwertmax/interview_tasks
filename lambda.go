@@ -10,11 +10,8 @@ func Adder(x int) func(int) int {
 
 func main() {
 	add5 := Adder(5)
-	val := add5(1)
-
-	fmt.Println(val)
+	fmt.Println(add5(1))
 
 	add8 := Adder(8)
-	val = add8(9)
-	fmt.Println(val)
+	fmt.Println(add8(9))
 }
