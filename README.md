@@ -67,3 +67,35 @@ func main() {
 2
 2
 ```
+
+
+## go_fun_v2.go
+
+very funny implementation of go lang with pointers (good thing for interview question)
+
+### example
+
+```go
+package main
+
+type T int
+
+func (t *T) Bar() { *t++; println(*t) }
+
+func main() {
+	var foo T = 1
+	var fooPtr *T = &foo
+
+	foo.Bar()
+	(*fooPtr).Bar()
+	fooPtr.Bar()
+}
+```
+
+### Output
+
+```shell
+2
+3
+4
+```
