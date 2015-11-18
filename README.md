@@ -130,5 +130,6 @@ func main() {
 ### Output
 
 ```shell
-
+6
+17
 ```
