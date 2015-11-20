@@ -130,3 +130,15 @@ func main() {
 6
 17
 ```
+
+## Data Race by Dave Chenny
+
+[Data Race by Dave Chenny](http://dave.cheney.net/2015/11/18/wednesday-pop-quiz-spot-the-race)
+
+### Example
+```go
+
+```
+
+### Output
+
