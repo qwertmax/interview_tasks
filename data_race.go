@@ -25,7 +25,8 @@ func main() {
 
 	go rpc.compute()         // kick off computation in the background
 	version := rpc.version() // grab some other information while we're waiting
+	<-rpc.done               // wait for computation to finish
+	result := rpc.result
 
-	fmt.Println(version)
-	fmt.Println(rpc.result)
+	fmt.Printf("RPC computation complete, result: %d, version: %d\n", result, version)
 }
