@@ -1,5 +1,10 @@
 # Interview Tasks
 
+##Table of Contents
+
+[Palindrom](#palindromgo)
+[Funny task for understanding methods and pointers](## gofungo)
+
 ## palindrom.go 
 
 test number if it is palindrom or not 
