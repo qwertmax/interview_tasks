@@ -181,3 +181,24 @@ go run --race data_race.go
 
 ### Output
 
+```shell
+go run --race data_race.go
+==================
+WARNING: DATA RACE
+Write by goroutine 6:
+  main.(*RPC).compute()
+      github.com/qwertmax/interview_tasks/data_race.go:15 +0x3b
+
+Previous read by main goroutine:
+  main.main()
+      github.com/qwertmax/interview_tasks/data_race.go:27 +0xfd
+
+Goroutine 6 (running) created at:
+  main.main()
+      github.com/qwertmax/interview_tasks/data_race.go:26 +0xe6
+==================
+RPC computation complete, result: 42, version: 1
+Found 1 data race(s)
+exit status 66
+```
+
