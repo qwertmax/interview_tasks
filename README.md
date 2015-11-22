@@ -2,10 +2,11 @@
 
 ##Table of Contents
 
-- [Palindrom](#palindromgo)
-- [Funny task for understanding methods and pointers](#go_fun)
+- [Palindrom](#palindrom)
+- [Funny task for understanding methods and pointers](#go-fun)
 
-## palindrom.go 
+
+## Palindrom
 
 test number if it is palindrom or not 
 
@@ -74,7 +75,7 @@ func main() {
 ```
 
 
-## go_fun_v2.go
+## go fun v2
 
 very funny implementation of go lang with pointers (good thing for interview question)
 
