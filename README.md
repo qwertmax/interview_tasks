@@ -5,6 +5,7 @@
 - [Palindrom](#palindrom)
 - [Funny task for understanding methods and pointers](#go-fun)
 - [Funny task for understanding methods and pointers version 2](#go-fun-v2)
+- [Lambda/Closure example in go](#lambda--closure-example-in-go)
 
 ## Palindrom
 
