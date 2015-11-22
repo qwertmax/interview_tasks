@@ -171,5 +171,10 @@ func main() {
 }
 ```
 
+
 ### Output
 
+```shell
+go run --race data_race.go
+
+```
