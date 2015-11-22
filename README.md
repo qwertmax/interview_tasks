@@ -3,7 +3,7 @@
 ##Table of Contents
 
 - [Palindrom](#palindromgo)
-- [Funny task for understanding methods and pointers](#gofun)
+- [Funny task for understanding methods and pointers](#go_fun)
 
 ## palindrom.go 
 
