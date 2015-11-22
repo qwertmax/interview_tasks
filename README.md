@@ -3,7 +3,7 @@
 ##Table of Contents
 
 [Palindrom](#palindromgo)
-[Funny task for understanding methods and pointers](## gofungo)
+[Funny task for understanding methods and pointers](#gofun)
 
 ## palindrom.go 
 
@@ -44,7 +44,7 @@ func reverce(num int64) int64 {
 ```
 
 
-## go_fun.go
+## [go_fun](#go_fun)
 
 very funny implementation of go lang (good thing for interview question)
 
