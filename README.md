@@ -172,9 +172,12 @@ func main() {
 ```
 
 
-### Output
+### Run command
 
 ```shell
 go run --race data_race.go
 
 ```
+
+### Output
+
