@@ -223,3 +223,8 @@ func (RPC) version() int {
 ```
 
 #### Must be
+```go
+func (*RPC) version() int {
+	return 1 // never going to need to change this
+}
+```
