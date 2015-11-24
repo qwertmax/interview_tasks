@@ -210,3 +210,16 @@ Found 1 data race(s)
 exit status 66
 ```
 
+### How can we fix it? 
+
+Pretty easty, we need to set version as pounter as well.
+
+#### was
+
+```go
+func (RPC) version() int {
+	return 1 // never going to need to change this
+}
+```
+
+#### Must be
