@@ -218,13 +218,13 @@ Pretty easty, we need to set version as pounter as well.
 
 ```go
 func (RPC) version() int {
-	return 1 // never going to need to change this
+	return 1
 }
 ```
 
 #### Must be
 ```go
 func (*RPC) version() int {
-	return 1 // never going to need to change this
+	return 1
 }
 ```
