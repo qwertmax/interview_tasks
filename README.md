@@ -274,3 +274,14 @@ func main() {
 	time.Sleep(300 * time.Millisecond)
 }
 ```
+
+### Output
+
+```shell
+started
+case v: 1
+case v: 2
+case v: 3
+case v: 4
+Gorutine exited
+```
