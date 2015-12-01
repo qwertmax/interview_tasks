@@ -16,6 +16,8 @@ func main() {
 				fmt.Printf("case v: %v\n", v)
 			case <-quit:
 				fmt.Println("Gorutine exited")
+				close(value)
+				close(quit)
 				return
 			}
 		}
