@@ -32,6 +32,5 @@ func main() {
 
 	fmt.Println(p.Address.addr)
 	p.Foo()
-	// p.Address.Foo()
 	fmt.Println(p.Address.addr)
 }
