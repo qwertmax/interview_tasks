@@ -4,6 +4,7 @@ import (
 	"fmt"
 )
 
+// Person is a strcut for person object
 type Person struct {
 	Fname string
 	Lname string
