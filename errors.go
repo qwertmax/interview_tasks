@@ -26,6 +26,7 @@ type Config struct {
 }
 
 type Error struct {
+	error
 	err  string
 	code int32
 }
