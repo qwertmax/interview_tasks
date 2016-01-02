@@ -25,6 +25,17 @@ func (p *Person) Foo() {
 	p.Address.addr = "w"
 }
 
+type A struct {
+	ParamA1 int16
+	ParamA2 string
+}
+
+type B struct {
+	A
+	ParamB1 int16
+	ParamB2 string
+}
+
 func main() {
 	p := Person{}
 	p.Fname = "Maxim"
@@ -34,4 +45,11 @@ func main() {
 	fmt.Println(p.Address.addr)
 	p.Foo()
 	fmt.Println(p.Address.addr)
+
+	a := A{
+		ParamA1: 1,
+		ParamA2: "2",
+	}
+
+	fmt.Printf("a => %#v\n", a)
 }
