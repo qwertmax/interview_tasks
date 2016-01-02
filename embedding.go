@@ -48,8 +48,18 @@ func main() {
 
 	a := A{
 		ParamA1: 1,
-		ParamA2: "2",
+		ParamA2: "1",
+	}
+
+	b := B{
+		A: A{
+			ParamA1: 2,
+			ParamA2: "2",
+		},
+		ParamB1: 3,
+		ParamB2: "4",
 	}
 
 	fmt.Printf("a => %#v\n", a)
+	fmt.Printf("b => %#v\n", b)
 }
