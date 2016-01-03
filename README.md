@@ -8,6 +8,7 @@
 - [Lambda/Closure example in go](#lambda--closure-example-in-go)
 - [Data Race by Dave Chenny](#data-race-by-dave-chenny)
 - [Channel Usage example](#channel-usage-example)
+- [net/http explanation](#explanation-of-nethttp)
 
 ## Palindrom
 
