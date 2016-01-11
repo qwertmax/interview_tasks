@@ -13,7 +13,12 @@ type SyntaxError struct {
 func (e *SyntaxError) Error() string { return e.msg }
 
 func main() {
-	_, err := os.Open("README.md1")
+
+	v1()
+}
+
+func v1() {
+	_, err := os.Open("README.md")
 	if err != nil {
 		if serr, ok := err.(*os.PathError); ok {
 			fmt.Printf("%#v\n", serr)
