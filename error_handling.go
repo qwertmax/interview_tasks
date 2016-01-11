@@ -56,6 +56,8 @@ func v3(fileName string) {
 	if err != nil {
 		if serr, ok := err.(*os.PathError); ok {
 			fmt.Printf("%#v\n", serr)
+			fmt.Println("Op", serr.Op)
+			fmt.Println("Path", serr.Path)
 		} else {
 			fmt.Printf("default err\n%#v\n", err)
 		}
