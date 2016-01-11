@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	_ "github.com/bmizerany/pq"
 	"github.com/jinzhu/gorm"
@@ -12,17 +13,17 @@ type Database struct {
 }
 
 type DB struct {
-	UserName string
-	Password string
-	Name     string
-	SSLMode  string
-	Address  string
-	Port     string
+	UserName string `json:"user_name"`
+	Password string `json:"passsword"`
+	Name     string `json:"name"`
+	SSLMode  string `json:"ssh_mode"`
+	Address  string `json:"address"`
+	Port     string `json:"port"`
 }
 
 type Config struct {
-	DB      DB
-	AppPort string
+	DB      DB     `json:"db"`
+	AppPort string `json:"app_port"`
 }
 
 type Error struct {
@@ -36,8 +37,13 @@ func (e Error) Error() string {
 }
 
 func (db *Database) getDb(conf Config) (gorm.DB, error) {
-	dbconn := "user=" + conf.DB.UserName + " password=" + conf.DB.Password + " dbname=" + conf.DB.Name + " sslmode=" + conf.DB.SSLMode + " host=" + conf.DB.Address + " port=" + conf.DB.Port
-	// fmt.Printf("dbconn = %s\n", dbconn)
+	dbconn :=
+		"user=" + conf.DB.UserName +
+			" password=" + conf.DB.Password +
+			" dbname=" + conf.DB.Name +
+			" sslmode=" + conf.DB.SSLMode +
+			" host=" + conf.DB.Address +
+			" port=" + conf.DB.Port
 	return gorm.Open("postgres", dbconn)
 }
 
@@ -51,6 +57,7 @@ func main() {
 			Address:  "192.168.99.100",
 			Port:     "5432",
 		},
+		AppPort: "3000",
 	}
 
 	db := Database{}
@@ -61,7 +68,18 @@ func main() {
 	dbHandler.DB().Ping()
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "hey")
+		w.Write([]byte("qqq"))
+	})
+
+	http.HandleFunc("/conf", func(w http.ResponseWriter, r *http.Request) {
+		js, err := json.Marshal(conf)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+
+		w.Header().Set("Content-Type", "application/json")
+		w.Write(js)
 	})
 
 	err = http.ListenAndServe(":"+conf.AppPort, nil)
