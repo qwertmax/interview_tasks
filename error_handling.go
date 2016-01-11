@@ -20,6 +20,8 @@ func main() {
 }
 
 func v1(fileName string) {
+	fmt.Println("v1")
+
 	_, err := os.Open(fileName)
 	if err != nil {
 		if serr, ok := err.(*os.PathError); ok {
@@ -29,9 +31,12 @@ func v1(fileName string) {
 		}
 	}
 
+	fmt.Println("END v1\n")
 }
 
 func v2(fileName string) {
+	fmt.Println("v2")
+
 	_, err := os.Open(fileName)
 	if err != nil {
 		if serr, ok := err.(*os.SyscallError); ok {
@@ -41,4 +46,5 @@ func v2(fileName string) {
 		}
 	}
 
+	fmt.Println("END v2\n")
 }
