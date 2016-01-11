@@ -16,7 +16,7 @@ func main() {
 
 	v1("README.md")
 	v2("README.md_ERROR")
-	// v3("README.md_ERROR")
+	v3("README.md_ERROR")
 }
 
 func v1(fileName string) {
@@ -47,4 +47,19 @@ func v2(fileName string) {
 	}
 
 	fmt.Println("END v2\n")
+}
+
+func v3(fileName string) {
+	fmt.Println("v3")
+
+	_, err := os.Open(fileName)
+	if err != nil {
+		if serr, ok := err.(*os.PathError); ok {
+			fmt.Printf("%#v\n", serr)
+		} else {
+			fmt.Printf("default err\n%#v\n", err)
+		}
+	}
+
+	fmt.Println("END v3\n")
 }
