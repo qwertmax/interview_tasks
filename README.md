@@ -322,3 +322,41 @@ func Main(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("main max"))
 }
 ```
+
+## Error handling in Go
+
+
+## simple benchmark
+
+```shell
+cd benchmark
+go test -v -bench .
+```
+
+```go
+func BenchmarkStrConcat(b *testing.B) {
+	var sa = "hello"
+	var sb = "world"
+	var sc string
+	for i := 0; i < b.N; i++ {
+		sc += sa + sb
+	}
+	sa = sc
+}
+
+func BenchmarkFmtConcat(b *testing.B) {
+	var sa = "hello"
+	var sb = "world"
+	var sc string
+	for i := 0; i < b.N; i++ {
+		sc = fmt.Sprintf("%s%s%s", sc, sa, sb)
+	}
+	sa = sc
+}
+```
+
+```shell
+BenchmarkStrConcat-8	  200000	    195032 ns/op
+BenchmarkFmtConcat-8	  100000	    241140 ns/op
+ok  	github.com/qwertmax/interview_tasks/benchmark	63.442s
+```
