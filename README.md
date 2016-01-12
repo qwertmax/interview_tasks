@@ -326,7 +326,11 @@ func Main(w http.ResponseWriter, r *http.Request) {
 ## Error handling in Go
 
 
-## simple benchmark
+## Benchmarks
+
+### Simple benchmark
+
+you need just run command like this:
 
 ```shell
 cd benchmark
