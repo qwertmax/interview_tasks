@@ -9,6 +9,8 @@
 - [Data Race by Dave Chenny](#data-race-by-dave-chenny)
 - [Channel Usage example](#channel-usage-example)
 - [net/http explanation](#explanation-of-nethttp)
+- [Error handling in Go](#error-handling-in-go)
+- [Benchmarks](#benchmarks)
 
 ## Palindrom
 
