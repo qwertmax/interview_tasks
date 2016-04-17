@@ -4,8 +4,8 @@ import "fmt"
 
 type number int
 
-func print(n number)   { fmt.Printf("print\t %h\t %d\n", &n, n) }
-func pprint(n *number) { fmt.Printf("pprint\t %h\t% d\n", n, *n) }
+func print(n number)   { fmt.Printf("print\t %v\t %d\n", &n, n) }
+func pprint(n *number) { fmt.Printf("pprint\t %v\t% d\n", n, *n) }
 
 func main() {
 	var n number
