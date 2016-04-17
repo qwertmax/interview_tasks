@@ -11,7 +11,7 @@
 - [net/http explanation](#explanation-of-nethttp)
 - [Error handling in Go](#error-handling-in-go)
 - [Benchmarks](#benchmarks)
-- [Defer]('#defer')
+- [Defer](#defer)
 
 ## Palindrom
 
@@ -386,6 +386,8 @@ func main() {
 	n = 3
 }
 ```
+
+	Outout
 
 ```shell
 pprint	 0xc820060028	 3
