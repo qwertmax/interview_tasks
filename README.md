@@ -387,7 +387,7 @@ func main() {
 }
 ```
 
-	Outout
+Console output
 
 ```shell
 pprint	 0xc820060028	 3
