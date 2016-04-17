@@ -11,6 +11,7 @@
 - [net/http explanation](#explanation-of-nethttp)
 - [Error handling in Go](#error-handling-in-go)
 - [Benchmarks](#benchmarks)
+- [Defer]('#defer')
 
 ## Palindrom
 
@@ -365,4 +366,30 @@ func BenchmarkFmtConcat(b *testing.B) {
 BenchmarkStrConcat-8	  200000	    195032 ns/op
 BenchmarkFmtConcat-8	  100000	    241140 ns/op
 ok  	github.com/qwertmax/interview_tasks/benchmark	63.442s
+```
+
+##defer
+
+```go
+type number int
+
+func print(n number)   { fmt.Printf("print\t %v\t %d\n", &n, n) }
+func pprint(n *number) { fmt.Printf("pprint\t %v\t% d\n", n, *n) }
+
+func main() {
+	var n number
+	defer print(n)
+	defer pprint(&n)
+	defer func() { print(n) }()
+	defer func() { pprint(&n) }()
+
+	n = 3
+}
+```
+
+```shell
+pprint	 0xc820060028	 3
+print	 0xc820060060	 3
+pprint	 0xc820060028	 3
+print	 0xc820060078	 0
 ```
