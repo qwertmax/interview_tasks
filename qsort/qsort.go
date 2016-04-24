@@ -1,17 +1,13 @@
 package qsort
 
 import (
-	// "fmt"
 	"math/rand"
 	"sort"
-	// "time"
 )
 
 type Interface interface {
 	sort.Interface
-	// Partition returns slice[:i] and slice[i+1:]
-	// These should references the original memory
-	// since this does an in-place sort
+
 	Partition(i int) (left Interface, right Interface)
 }
 
@@ -40,12 +36,9 @@ func Qsort(a Interface, prng *rand.Rand) Interface {
 
 	left, right := 0, a.Len()-1
 
-	// Pick a pivot
 	pivotIndex := prng.Int() % a.Len()
-	// Move the pivot to the right
 	a.Swap(pivotIndex, right)
 
-	// Pile elements smaller than the pivot on the left
 	for i := 0; i < a.Len(); i++ {
 		if a.Less(i, right) {
 
@@ -54,10 +47,8 @@ func Qsort(a Interface, prng *rand.Rand) Interface {
 		}
 	}
 
-	// Place the pivot after the last smaller element
 	a.Swap(left, right)
 
-	// Go down the rabbit hole
 	leftSide, rightSide := a.Partition(left)
 	Qsort(leftSide, prng)
 	Qsort(rightSide, prng)
