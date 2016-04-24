@@ -33,7 +33,7 @@ func BenchmarkNativeQsort(b *testing.B) {
 		}
 		b.StartTimer()
 
-		qsort.NativeQsort(list, prng)
+		qsort.QuickSort(list)
 	}
 }
 
