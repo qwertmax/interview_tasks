@@ -414,7 +414,7 @@ ok  	github.com/qwertmax/interview_tasks/qsort	7.238s
 looks like NativeQsort is the best solution for sort!
 but it is not so simple as we could think. 
 
-	Let's try to look at memory allocations!
+###Let's try to look at memory allocations!
 
 ```shell
 GOMAXPROCS=8 go test -bench=. -benchmem
@@ -426,5 +426,5 @@ BenchmarkSort-8       	       5	 305692503 ns/op	      32 B/op	       1 allocs/o
 ok  	github.com/qwertmax/interview_tasks/qsort	7.143s
 ```
 
-	WOW. Did you see that? It looks like right now we know why it was so fast.
+###WOW. Did you see that? It looks like right now we know why it was so fast.
 
