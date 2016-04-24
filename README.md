@@ -12,6 +12,7 @@
 - [Error handling in Go](#error-handling-in-go)
 - [Benchmarks](#benchmarks)
 - [Defer](#defer)
+- [Sort vs quick sort](#sort-vs-quick-sort)
 
 ## Palindrom
 
@@ -394,4 +395,11 @@ pprint	 0xc820060028	 3
 print	 0xc820060060	 3
 pprint	 0xc820060028	 3
 print	 0xc820060078	 0
+```
+
+##Sort vs quick sort
+
+run benchmark tests
+
+```shell
 ```
