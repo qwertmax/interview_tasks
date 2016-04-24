@@ -402,4 +402,29 @@ print	 0xc820060078	 0
 run benchmark tests
 
 ```shell
+GOMAXPROCS=8 go test -bench=.
+testing: warning: no tests to run
+PASS
+BenchmarkQsort-8      	       2	 630965101 ns/op
+BenchmarkNativeQsort-8	       2	 726137348 ns/op
+BenchmarkSort-8       	       5	 311290221 ns/op
+ok  	github.com/qwertmax/interview_tasks/qsort	7.238s
 ```
+
+looks like NativeQsort is the best solution for sort!
+but it is not so simple as we could think. 
+
+	Let's try to look at memory allocations!
+
+```shell
+GOMAXPROCS=8 go test -bench=. -benchmem
+testing: warning: no tests to run
+PASS
+BenchmarkQsort-8      	       2	 626935514 ns/op	42648592 B/op	 1332781 allocs/op
+BenchmarkNativeQsort-8	       2	 726719612 ns/op	852610040 B/op	 3239965 allocs/op
+BenchmarkSort-8       	       5	 305692503 ns/op	      32 B/op	       1 allocs/op
+ok  	github.com/qwertmax/interview_tasks/qsort	7.143s
+```
+
+	WOW. Did you see that? It looks like right now we know why it was so fast.
+
