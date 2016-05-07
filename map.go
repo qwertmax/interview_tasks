@@ -30,6 +30,13 @@ func (ug userGroup) String() string {
 	return output
 }
 
+// main magic goes here
+func (ug *userGroup) mapOverUsers(fn func(u *user)) {
+	for _, user := range ug.users {
+		fn(user)
+	}
+}
+
 func main() {
 	ug := userGroup{
 		map[int]*user{
@@ -44,6 +51,12 @@ func main() {
 				email: "3@ex.com"},
 		},
 	}
+	fmt.Println(ug)
+
+	ug.mapOverUsers(func(u *user) {
+		u.ChangeEmail("new email")
+	})
 
 	fmt.Println(ug)
+
 }
