@@ -13,6 +13,7 @@
 - [Benchmarks](#benchmarks)
 - [Defer](#defer)
 - [Sort vs quick sort](#sort-vs-quick-sort)
+- [Map over users](#map-over-users)
 
 ## Palindrom
 
@@ -428,3 +429,72 @@ ok  	github.com/qwertmax/interview_tasks/qsort	7.143s
 
 ###WOW. Did you see that? It looks like right now we know why it was so fast.
 
+
+##Map over users
+
+interesting implementation of map and useing it from any kind of function
+
+```go
+type user struct {
+	name, email string
+}
+
+func (u *user) ChangeEmail(email string) {
+	u.email = email
+}
+
+func (u user) String() string {
+	return fmt.Sprintf("%s (%s)", u.name, u.email)
+}
+
+type userGroup struct {
+	users map[int]*user
+}
+
+func (ug userGroup) String() string {
+	output := "["
+	for key, val := range ug.users {
+		output += fmt.Sprintf("%d: {%s}; ", key, val)
+	}
+
+	output += "]"
+	return output
+}
+
+// main magic goes here
+func (ug *userGroup) mapOverUsers(fn func(u *user)) {
+	for _, user := range ug.users {
+		fn(user)
+	}
+}
+
+func main() {
+	ug := userGroup{
+		map[int]*user{
+			0: &user{
+				name:  "Max",
+				email: "1@ex.com"},
+			1: &user{
+				name:  "Nati",
+				email: "2@ex.com"},
+			2: &user{
+				name:  "Alex",
+				email: "3@ex.com"},
+		},
+	}
+	fmt.Println(ug)
+
+	ug.mapOverUsers(func(u *user) {
+		u.ChangeEmail("new email")
+	})
+
+	fmt.Println(ug)
+}
+```
+
+### Output
+
+```shell
+[0: {Max (1@ex.com)}; 1: {Nati (2@ex.com)}; 2: {Alex (3@ex.com)}; ]
+[0: {Max (new email)}; 1: {Nati (new email)}; 2: {Alex (new email)}; ]
+```
