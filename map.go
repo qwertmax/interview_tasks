@@ -20,6 +20,16 @@ type userGroup struct {
 	users map[int]*user
 }
 
+func (ug userGroup) String() string {
+	output := "["
+	for key, val := range ug.users {
+		output += fmt.Sprintf("%d: {%s}; ", key, val)
+	}
+
+	output += "]"
+	return output
+}
+
 func main() {
 	ug := userGroup{
 		map[int]*user{
@@ -36,5 +46,4 @@ func main() {
 	}
 
 	fmt.Println(ug)
-	fmt.Println(ug.users[0])
 }
