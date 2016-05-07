@@ -17,5 +17,19 @@ type userGroup struct {
 }
 
 func main() {
-	ug := userGroup{user{name: "Max", email: "1@ex.com"}}
+	ug := userGroup{
+		map[int]*user{
+			0: &user{
+				name:  "Max",
+				email: "1@ex.com"},
+			1: &user{
+				name:  "Nati",
+				email: "2@ex.com"},
+			2: &user{
+				name:  "Alex",
+				email: "3@ex.com"},
+		},
+	}
+
+	fmt.Println(ug)
 }
