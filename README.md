@@ -1,4 +1,4 @@
-# Interview Tasks
+# Go (Golang) interesting examples and tricky implementations
 
 ##Table of Contents
 
