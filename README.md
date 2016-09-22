@@ -12,6 +12,7 @@
 - [Error handling in Go](#error-handling-in-go)
 - [Benchmarks](#benchmarks)
 - [Defer](#defer)
+- [Defer2](#defer2)
 - [Sort vs quick sort](#sort-vs-quick-sort)
 - [Map over users](#map-over-users)
 
@@ -396,6 +397,54 @@ pprint	 0xc820060028	 3
 print	 0xc820060060	 3
 pprint	 0xc820060028	 3
 print	 0xc820060078	 0
+```
+
+##defer2
+
+```go
+type T struct {
+	ID int
+}
+
+func (t *T) PrintID() {
+	fmt.Println(t.ID)
+}
+
+func F1() {
+	ts := []T{{1}, {2}, {3}}
+	for _, t := range ts {
+		defer t.PrintID()
+	}
+}
+
+func F2() {
+	ts := []*T{&T{1}, &T{2}, &T{3}}
+	for _, t := range ts {
+		defer t.PrintID()
+	}
+}
+
+func main() {
+	fmt.Println("F1()")
+	F1()
+	fmt.Println()
+	fmt.Println("F2()")
+	F2()
+}
+```
+
+Console output
+
+```shell
+F1()
+3
+3
+3
+
+F2()
+3
+2
+1
 ```
 
 ##Sort vs quick sort
