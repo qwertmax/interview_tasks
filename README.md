@@ -599,4 +599,4 @@ func (f fooImpl) foo() barImpl {
 
 ```
 
-but this is wrong, becauce <strong>type fooer interface</strong> require <strong>foo() barer</strong> not a barImpl, that's why you have to use <strong>func (f fooImpl) foo() barer {</strong>
+but this is wrong, becauce <strong>type fooer interface</strong> require <strong>foo() barer</strong> not a <strong>barImpl</strong>, that's why you have to use <strong>func (f fooImpl) foo() barer {</strong>
