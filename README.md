@@ -15,6 +15,7 @@
 - [Defer2](#defer2)
 - [Sort vs quick sort](#sort-vs-quick-sort)
 - [Map over users](#map-over-users)
+- [Interfaces](#interfaces)
 
 ## Palindrom
 
@@ -547,3 +548,55 @@ func main() {
 [0: {Max (1@ex.com)}; 1: {Nati (2@ex.com)}; 2: {Alex (3@ex.com)}; ]
 [0: {Max (new email)}; 1: {Nati (new email)}; 2: {Alex (new email)}; ]
 ```
+
+
+##Interfaces
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+type fooer interface {
+	foo() barer
+}
+
+type barer interface {
+	bar() string
+}
+
+type fooImpl string
+
+func (f fooImpl) foo() barer {
+	return barImpl("ololo")
+}
+
+type barImpl string
+
+func (b barImpl) bar() string {
+	return string(b)
+}
+
+func main() {
+	var f fooImpl
+	lol(f)
+}
+
+func lol(f fooer) {
+	fmt.Print(f.foo().bar())
+}
+
+```
+
+you can think that you can use 
+
+```go
+func (f fooImpl) foo() barImpl {
+	return barImpl("ololo")
+}
+
+```
+
+but this is wrong, becauce <mark>type fooer interface</mark> require <mark>foo() barer</mark> not a barImpl, that's why you have to use <mark>func (f fooImpl) foo() barer {</mark>
