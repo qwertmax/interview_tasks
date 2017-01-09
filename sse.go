@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"log"
 	"net/http"
-	"time"
+	// "time"
 )
 
 // Example SSE server in Golang.
@@ -41,9 +42,20 @@ func NewServer() (broker *Broker) {
 }
 
 func (broker *Broker) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
+	if req.URL.String() == "/msg" && req.Method == http.MethodPost {
+		htmlData, err := ioutil.ReadAll(req.Body) //<--- here!
+
+		if err != nil {
+			log.Println(err)
+			return
+		}
+
+		eventString := htmlData
+		broker.Notifier <- []byte(eventString)
+		return
+	}
 
 	// Make sure that the writer supports flushing.
-	//
 	flusher, ok := rw.(http.Flusher)
 
 	if !ok {
@@ -119,15 +131,15 @@ func main() {
 
 	broker := NewServer()
 
-	go func() {
-		for {
-			time.Sleep(time.Second * 2)
-			eventString := fmt.Sprintf("the time is %v", time.Now())
-			log.Println("Receiving event")
-			broker.Notifier <- []byte(eventString)
-		}
-	}()
+	// go func() {
+	// 	for {
+	// 		time.Sleep(time.Second * 2)
+	// 		eventString := fmt.Sprintf("{\"msg\": \"the time is %v\", \"test\": 1}", time.Now())
+	// 		log.Println("Receiving event")
+	// 		broker.Notifier <- []byte(eventString)
+	// 	}
+	// }()
 
-	log.Fatal("HTTP server error: ", http.ListenAndServe("localhost:3000", broker))
+	log.Fatal("HTTP server error: ", http.ListenAndServe(":3000", broker))
 
 }
