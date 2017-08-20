@@ -16,6 +16,7 @@
 - [Sort vs quick sort](#sort-vs-quick-sort)
 - [Map over users](#map-over-users)
 - [Interfaces](#interfaces)
+- [Two Sum](#two-sum)
 
 ## Palindrom
 
@@ -600,3 +601,52 @@ func (f fooImpl) foo() barImpl {
 ```
 
 but this is wrong, becauce <strong>type fooer interface</strong> require <strong>foo() barer</strong> not a <strong>barImpl</strong>, that's why you have to use <strong>func (f fooImpl) foo() barer {</strong>
+
+
+## Problems from leetcode.com
+
+## Two Sum
+
+```go
+package main
+
+import (
+	"fmt"
+	"sort"
+)
+
+func twoSum(nums []int, target int) []int {
+	indexs := make([]int, 2)
+	hash := map[int]int{}
+
+	for i := range nums {
+		hash[target-nums[i]] = i
+	}
+
+	for i := range nums {
+		index, ok := hash[nums[i]]
+		if ok {
+			if i == index {
+				continue
+			}
+			indexs[0] = index
+			indexs[1] = i
+			sort.Ints(indexs)
+			break
+		}
+		continue
+	}
+
+	return indexs
+}
+
+func main() {
+	nums := []int{2, 7, 11, 15}
+	target := 9
+
+	result := twoSum(nums, target)
+
+	fmt.Printf("%#v\n", result)
+
+}
+```
