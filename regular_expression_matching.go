@@ -38,4 +38,10 @@ func isMatch(s string, p string) bool {
 
 func main() {
 	fmt.Printf("%#v\n", isMatch("aa", "a"))
+	fmt.Printf("%#v\n", isMatch("aa", "aa"))
+	fmt.Printf("%#v\n", isMatch("aaa", "aa"))
+	fmt.Printf("%#v\n", isMatch("aa", "a*"))
+	fmt.Printf("%#v\n", isMatch("aa", ".*"))
+	fmt.Printf("%#v\n", isMatch("ab", ".*"))
+	fmt.Printf("%#v\n", isMatch("aab", "c*a*b"))
 }
