@@ -22,6 +22,7 @@
 - [Merge k sorted lists](#merge-k-sorted-lists)
 - [Median of Two Sorted Arrays](#median-of-two-sorted-arrays)
 - [Roman to Integer](#roman-to-integer)
+- [Trapping Rain Water](#trapping-rain-water)
 
 ## Palindrom
 
@@ -907,5 +908,36 @@ func romanToInteger(s string) int {
 
 func main() {
 	fmt.Printf("%#v\n", romanToInteger("DCXXI"))
+}
+```
+
+### Trapping Rain Water
+
+```go
+func trap(height []int) int {
+	left, right, secHeight, area := 0, len(height)-1, 0, 0
+	for left < right {
+		if height[left] < height[right] {
+			secHeight = max(secHeight, height[left])
+			area += secHeight - height[left]
+			left++
+		} else {
+			secHeight = max(secHeight, height[right])
+			area += secHeight - height[right]
+			right--
+		}
+	}
+	return area
+}
+
+func max(i, j int) int {
+	if i > j {
+		return i
+	}
+	return j
+}
+
+func main() {
+	fmt.Printf("%#v\n", trap([]int{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}))
 }
 ```
