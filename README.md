@@ -1024,6 +1024,7 @@ func longestIncreasingPath(matrix [][]int) int {
 	return ret
 }```
 
+and helper
 
 ```golang
 func helper(matrix [][]int, path [][]int, row, col, r, c int, visited [][]bool) int {
