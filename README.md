@@ -995,7 +995,7 @@ func maximumGap(nums []int) int {
 
 ### Longest Increasing Path in a Matrix
 
-```golang
+```go
 func longestIncreasingPath(matrix [][]int) int {
 	row := len(matrix)
 	var col int
@@ -1026,7 +1026,7 @@ func longestIncreasingPath(matrix [][]int) int {
 
 and helper
 
-```golang
+```go
 func helper(matrix [][]int, path [][]int, row, col, r, c int, visited [][]bool) int {
 	if path[r][c] > 0 {
 		return path[r][c]
