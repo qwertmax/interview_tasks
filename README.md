@@ -1022,7 +1022,8 @@ func longestIncreasingPath(matrix [][]int) int {
 	}
 
 	return ret
-}```
+}
+```
 
 and helper
 
@@ -1055,5 +1056,4 @@ func helper(matrix [][]int, path [][]int, row, col, r, c int, visited [][]bool) 
 	path[r][c] = ret + 1
 	return path[r][c]
 }
-
 ```
