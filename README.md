@@ -1,6 +1,6 @@
 # Go (Golang) interesting examples and tricky implementations
 
-##Table of Contents
+## Table of Contents
 
 - [Palindrom](#palindrom)
 - [Funny task for understanding methods and pointers](#go-fun)
@@ -25,7 +25,7 @@
 - [Trapping Rain Water](#trapping-rain-water)
 - [Maximum Gap](#maximum-gap)
 - [Longest Increasing Path in a Matrix](#longest-increasing-path-in-a-matrix)
-
+- [Longest Valid Parentheses](#longest-valid-parentheses)
 
 ## Palindrom
 
