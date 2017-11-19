@@ -995,6 +995,36 @@ func maximumGap(nums []int) int {
 
 ### Longest Increasing Path in a Matrix
 
+*Examples:*
+
+```
+nums = [
+  [9,9,4],
+  [6,6,8],
+  [2,1,1]
+]
+```
+
+Return `4`
+
+The longest increasing path is `[1, 2, 6, 9]`.
+
+*more examples:*
+
+```
+nums = [
+  [3,4,5],
+  [3,2,6],
+  [2,2,1]
+]
+```
+
+Return `4`
+
+The longest increasing path is `[3, 4, 5, 6]`.
+
+
+
 ```go
 func longestIncreasingPath(matrix [][]int) int {
 	row := len(matrix)
