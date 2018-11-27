@@ -26,6 +26,7 @@
 - [Maximum Gap](#maximum-gap)
 - [Longest Increasing Path in a Matrix](#longest-increasing-path-in-a-matrix)
 - [Longest Valid Parentheses](#longest-valid-parentheses)
+- [Single Number 3](#single-number-3)
 
 ## Palindrom
 
