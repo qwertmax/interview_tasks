@@ -1141,3 +1141,9 @@ func singleNumber(numbers []int) []int {
   return []int{ret1, ret2}
 }
 ```
+
+Output: 
+
+```
+[1,2,1,3,2,5] => [3,5]
+```
